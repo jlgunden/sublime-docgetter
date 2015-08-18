@@ -5,7 +5,7 @@
   [
   {
     "caption": "PHP",
-    // "args": {"language": "PHP"},
+    "args": {"language": "PHP"},
     "command": "get_docs"
   },
   {
