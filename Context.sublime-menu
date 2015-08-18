@@ -1,0 +1,23 @@
+[
+{
+  "caption": "Get Docs",
+  "children":
+  [
+  {
+    "caption": "PHP",
+    // "args": {"language": "PHP"},
+    "command": "get_docs"
+  },
+  {
+    "caption": "JavaScript",
+    "args": {"language": "JS"},
+    "command": "get_docs"
+  },
+  {
+    "caption": "CSS",
+    "args": {"language": "CSS"},
+    "command": "get_docs"
+  }
+  ]
+}
+]
