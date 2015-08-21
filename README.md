@@ -2,6 +2,7 @@
 This is a simple plugin to quickly find documentation for a selection
 
 # TODO
-Auto detect syntax of selection
-Add settings file to allow custom base urls
-Keyboard shortcut
+<ul>
+<li>Allow users to change base URLs in settings</li>
+<li>Keyboard shortcuts to run the command</li>
+
