@@ -14,7 +14,7 @@ class GetDocsCommand(sublime_plugin.TextCommand):
 
   def get_selections(self):
     """
-    Returns  selections in a dictionary where each key is a scope and value
+    Returns  selections in a dictionary where each key is a scope and its value
     is a list containing all selections belonging to that scope
     """
 
