@@ -5,16 +5,18 @@ BASE_URLS = {
   'php': 'http://php.net/',
   'js': 'https://developer.mozilla.org/en-US/search?topic=js&q=',
   'css': 'https://developer.mozilla.org/en-US/search?topic=css&q=',
-  'python': '',
-  'ruby': ''
+  'python': 'http://docs.python.org/3/search.html?q=',
+  'ruby': 'http://ruby-doc.com/search.html?q='
 }
 
 class GetDocsCommand(sublime_plugin.TextCommand):
-  """
-  This will search the relevent API docs for the selection(s)
-  """
+  """This will search the relevent documentation for the selection(s)"""
 
   def get_selections(self):
+    """
+    Returns  selections in a dictionary where each key is a scope and value
+    is a list containing all selections belonging to that scope
+    """
 
     selections = {}
 
@@ -37,10 +39,5 @@ class GetDocsCommand(sublime_plugin.TextCommand):
       else:
         language = scope_name
 
-      print(language)
-
       for selection in selection_list:
-        if (language in BASE_URLS):
-          webbrowser.open_new_tab(BASE_URLS[language] + selection)
-        else:
-          webbrowser.open_new_tab('https://www.google.com/#q=' + selection)
+        webbrowser.open_new_tab(BASE_URLS.get(language, 'https://www.google.com/#q=') + selection)
