@@ -2,11 +2,11 @@ import sublime, sublime_plugin, webbrowser
 
 # TODO: allow users to change these in options
 BASE_URLS = {
-  'PHP': 'http://php.net/',
-  'JS': 'https://developer.mozilla.org/en-US/search?topic=js&q=',
-  'CSS': 'https://developer.mozilla.org/en-US/search?topic=css&q=',
-  'PYTHON': '',
-  'RUBY': ''
+  'php': 'http://php.net/',
+  'js': 'https://developer.mozilla.org/en-US/search?topic=js&q=',
+  'css': 'https://developer.mozilla.org/en-US/search?topic=css&q=',
+  'python': '',
+  'ruby': ''
 }
 
 class GetDocsCommand(sublime_plugin.TextCommand):
@@ -15,20 +15,32 @@ class GetDocsCommand(sublime_plugin.TextCommand):
   """
 
   def get_selections(self):
-    selections = []
+
+    selections = {}
+
     for region in self.view.sel():
-      selection = self.view.substr(region)
-      selections.append(selection)
+      scope_name = self.view.scope_name(region.begin()).rpartition('.')[2].strip()
+      if scope_name in selections:
+        selections[scope_name].append(self.view.substr(region))
+      else:
+        selections[scope_name] = [self.view.substr(region)]
+
     return selections
 
   def run(self, edit, language=''):
     selections = self.get_selections()
 
-    # TODO: extract scope for auto detection
+    for (scope_name, selection_list) in selections.items():
 
-    for selection in selections:
-      if (language in BASE_URLS):
-        webbrowser.open_new_tab(BASE_URLS[language] + selection)
+      if language != '':
+        language = language
       else:
-        webbrowser.open_new_tab('https://www.google.com/#q=' + selection)
+        language = scope_name
 
+      print(language)
+
+      for selection in selection_list:
+        if (language in BASE_URLS):
+          webbrowser.open_new_tab(BASE_URLS[language] + selection)
+        else:
+          webbrowser.open_new_tab('https://www.google.com/#q=' + selection)
