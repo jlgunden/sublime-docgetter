@@ -4,6 +4,10 @@
   "children":
   [
   {
+    "caption": "Auto",
+    "command": "get_docs"
+  },
+  {
     "caption": "PHP",
     "args": {"language": "php"},
     "command": "get_docs"
@@ -16,6 +20,16 @@
   {
     "caption": "CSS",
     "args": {"language": "css"},
+    "command": "get_docs"
+  },
+  {
+    "caption": "Python",
+    "args": {"language": "python"},
+    "command": "get_docs"
+  },
+  {
+    "caption": "Ruby",
+    "args": {"language": "ruby"},
     "command": "get_docs"
   }
   ]
