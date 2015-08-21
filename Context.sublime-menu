@@ -5,17 +5,17 @@
   [
   {
     "caption": "PHP",
-    "args": {"language": "PHP"},
+    "args": {"language": "php"},
     "command": "get_docs"
   },
   {
     "caption": "JavaScript",
-    "args": {"language": "JS"},
+    "args": {"language": "js"},
     "command": "get_docs"
   },
   {
     "caption": "CSS",
-    "args": {"language": "CSS"},
+    "args": {"language": "css"},
     "command": "get_docs"
   }
   ]
