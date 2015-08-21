@@ -35,9 +35,9 @@ class GetDocsCommand(sublime_plugin.TextCommand):
     for (scope_name, selection_list) in selections.items():
 
       if language != '':
-        language = language
+        url_key = language
       else:
-        language = scope_name
+        url_key = scope_name
 
       for selection in selection_list:
-        webbrowser.open_new_tab(BASE_URLS.get(language, 'https://www.google.com/#q=') + selection)
+        webbrowser.open_new_tab(BASE_URLS.get(url_key, 'https://www.google.com/#q=') + selection)
